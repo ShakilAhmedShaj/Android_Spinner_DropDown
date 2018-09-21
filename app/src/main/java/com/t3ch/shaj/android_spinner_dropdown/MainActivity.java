@@ -2,6 +2,7 @@ package com.t3ch.shaj.android_spinner_dropdown;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -27,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.sample_layout, R.id.sampleTVid, planetNames);
         spinner.setAdapter(adapter);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String value = spinner.getSelectedItem().toString();
+                textView.setText(value);
+            }
+        });
 
     }
 }
